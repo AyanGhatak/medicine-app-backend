@@ -16,11 +16,13 @@ public class MedicineController {
     @Autowired
     MedicineService medicineService;
 
+    @CrossOrigin
     @GetMapping("")
     public List<Medicine> list() {
         return medicineService.listAllMedicines();
     }
 
+    @CrossOrigin
     @GetMapping("/{id}")
     public ResponseEntity<Medicine> get(@PathVariable Integer id) {
         try {
@@ -31,11 +33,13 @@ public class MedicineController {
         }
     }
 
+    @CrossOrigin
     @PostMapping("/")
     public void add(@RequestBody Medicine user) {
         medicineService.saveMedicine(user);
     }
 
+    @CrossOrigin
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@RequestBody Medicine user, @PathVariable Integer id) {
         try {
@@ -47,6 +51,7 @@ public class MedicineController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    @CrossOrigin
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Integer id) {
         medicineService.deleteMedicine(id);
