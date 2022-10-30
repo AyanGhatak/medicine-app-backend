@@ -1,17 +1,17 @@
 package com.assignment.medicineappbackend.model;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Order {
 
-    private ArrayList<OrderDetails> details;
+    private List<ExternalOrderDetails> details;
     private OrderInfo info;
 
 
     public Order() {
     }
 
-    public Order(OrderInfo info, ArrayList details) {
+    public Order(OrderInfo info, List<ExternalOrderDetails> details) {
         this.info = info;
         this.details = details;
     }
@@ -24,11 +24,11 @@ public class Order {
         this.info = info;
     }
 
-    public ArrayList<OrderDetails> getDetails() {
+    public List<ExternalOrderDetails> getDetails() {
         return details;
     }
 
-    public void setDetails(ArrayList<OrderDetails> details) {
+    public void setDetails(List<ExternalOrderDetails> details) {
         this.details = details;
     }
 }

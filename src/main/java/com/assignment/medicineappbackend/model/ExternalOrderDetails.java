@@ -1,11 +1,7 @@
 package com.assignment.medicineappbackend.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+public class ExternalOrderDetails {
 
-@Entity
-@Table(name = "OrderDetails")
-public class OrderDetails {
     protected int id;
     protected int orderId;
     protected int productId;
@@ -14,16 +10,38 @@ public class OrderDetails {
 
     protected Float price;
 
-    public OrderDetails(){
+    private String name;
+    private String image;
+
+    public ExternalOrderDetails(){
 
     }
 
-    public OrderDetails(int id, int orderId, int productId, int quantity, Float price) {
+    public ExternalOrderDetails(int id, int orderId, int productId, int quantity, Float price,
+                                String name, String image) {
         this.id = id;
         this.orderId = orderId;
         this.productId = productId;
         this.price = price;
         this.quantity = quantity;
+        this.name = name;
+        this.image = image;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Float getPrice() {
@@ -66,4 +84,3 @@ public class OrderDetails {
         this.quantity = quantity;
     }
 }
-
