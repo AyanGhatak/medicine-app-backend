@@ -1,7 +1,6 @@
 package com.assignment.medicineappbackend.controller;
 
-import com.assignment.medicineappbackend.model.Medicine;
-import com.assignment.medicineappbackend.model.OrderInfo;
+import com.assignment.medicineappbackend.model.Order;
 import com.assignment.medicineappbackend.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,12 +19,12 @@ public class OrderController {
 
     @CrossOrigin
     @GetMapping("/{userId}")
-    public ResponseEntity<OrderInfo> get(@PathVariable Integer userId) {
+    public ResponseEntity<List<Order>> get(@PathVariable Integer userId) {
         try {
-            OrderInfo orderInfo = orderService.getOrdersForUser(userId);
-            return new ResponseEntity<OrderInfo>(orderInfo, HttpStatus.OK);
+            List<Order> orders = orderService.getOrdersForUser(userId);
+            return new ResponseEntity<List<Order>>(orders, HttpStatus.OK);
         } catch (NoSuchElementException e) {
-            return new ResponseEntity<OrderInfo>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<List<Order>>(HttpStatus.NOT_FOUND);
         }
     }
 }
