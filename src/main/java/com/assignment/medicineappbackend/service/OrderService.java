@@ -46,6 +46,11 @@ public class OrderService {
             for(OrderDetails orderDetail:orderDetails) {
                 Medicine med = findProductByID(products, orderDetail.getProductId());
                 ExternalOrderDetails externalOrderDetail = new ExternalOrderDetails();
+                externalOrderDetail.setId(orderDetail.getId());
+                externalOrderDetail.setOrderId(orderDetail.getId());
+                externalOrderDetail.setProductId(orderDetail.getProductId());
+                externalOrderDetail.setQuantity(orderDetail.getQuantity());
+                externalOrderDetail.setPrice(orderDetail.getPrice());
                 externalOrderDetail.setName(med.getName());
                 externalOrderDetail.setImage(med.getImage());
                 externalOrderDetails.add(externalOrderDetail);
