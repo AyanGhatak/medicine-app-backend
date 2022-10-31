@@ -1,5 +1,6 @@
 package com.assignment.medicineappbackend.controller;
 
+import com.assignment.medicineappbackend.model.OrderPayload;
 import com.assignment.medicineappbackend.model.Order;
 import com.assignment.medicineappbackend.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +27,11 @@ public class OrderController {
         } catch (NoSuchElementException e) {
             return new ResponseEntity<List<Order>>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @CrossOrigin
+    @PostMapping("/")
+    public void add(@RequestBody OrderPayload orderItem) {
+        orderService.saveOrder(orderItem);
     }
 }
